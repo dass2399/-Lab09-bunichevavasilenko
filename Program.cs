@@ -114,15 +114,15 @@
 //индивидуальные задания
 //буничева №1 и №5
 //№1
-int N = 30;
+// int N = 30;
 
-Console.WriteLine($"Числа от 1 до {N}, кратные 3: ");
-for (int i = 1; i <= N; i++)
-{
-    if (i % 3 == 0) {
-        Console.WriteLine(i);
-    }
-}
+// Console.WriteLine($"Числа от 1 до {N}, кратные 3: ");
+// for (int i = 1; i <= N; i++)
+// {
+//     if (i % 3 == 0) {
+//         Console.WriteLine(i);
+//     }
+// }
 //№5
 Console.WriteLine("Поиск первого числа от 1 до 100, кратного 3 и 5 одновременно: ");
 
@@ -134,19 +134,52 @@ for (int i = 1; i <= 100; i++)
     }
 }
 
-//Василенко №5 и №8
-//№5
-Console.WriteLine("Поиск первого числа от 1 до 100, кратного 3 и 5 одновременно: ");
+// //Василенко №5 и №8
+// //№5
+// Console.WriteLine("Поиск первого числа от 1 до 100, кратного 3 и 5 одновременно: ");
 
-for (int i = 1; i <= 100; i++)
+// for (int i = 1; i <= 100; i++)
+// {
+//     if (i % 3 == 0 && i % 5 == 0) {
+//         Console.WriteLine($"Найдено число: {i}");
+//         break;
+//     }
+// }
+// //№8
+// Console.WriteLine("Четные числа от 100 до 2 в обратном порядке: ");
+// for (int i = 100; i >= 2; i -= 2)
+// {
+//     Console.WriteLine(i);
+// }
+
+//Доп задание
+Console.Write("Введите общее количество недель тренировок №: ");
+int N = int.Parse(Console.ReadLine());
+
+int trainingDays = 0;
+bool enough = false;
+
+Console.WriteLine("Начало тренировочного плана...");
+for (int week = 1; week <= N && !enough; week++)
 {
-    if (i % 3 == 0 && i % 5 == 0) {
-        Console.WriteLine($"Найдено число: {i}");
-        break;
+    for (int day = 1; day <= 7; day++)
+    {
+        if (day == 7)
+        {
+            continue;
+        }
+        trainingDays++;
+        if (trainingDays == 20)
+        {
+            enough = true;
+            Console.WriteLine($"Набрано 20 тренировочных дней!");
+            Console.WriteLine($"Остановились на {week}-й неделе, {day}-м дне.");
+            break;
+        }
     }
 }
-//№8
-Console.WriteLine("Четные числа от 100 до 2 в обратном порядке: ");
-for (int i = 100; i >= 2; i -= 2) {
-    Console.WriteLine(i);
+
+if (!enough) {
+    Console.WriteLine($"План на {N} недель завершен.");
+    Console.WriteLine($"Всего набрано тренировочных дней {trainingDays}");
 }
